@@ -178,62 +178,62 @@
 <p>​    1.Nodejs的安装：</p>
 <p>​    <a target="_blank" rel="noopener" href="http://nodejs.cn/">http://nodejs.cn/</a></p>
 <p>​    检查安装是否成功（出现版本号就是成功）</p>
-<p>​    <img src="img1.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​    <img src="img1.png"></p>
 <p>​    2.由于npm在国内访问比较慢，所以使用其他源来安装</p>
 <p>​    先利用npm来安装一个cnpm，</p>
 <p>​    命令：npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
 <p>​    等待下载安装，安装结束之后可以使用查看版本号的方法来检查是否安装成功</p>
-<p>​    <img src="img2.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​    <img src="img2.png"></p>
 <p>​    3.现在开始用cnpm安装hexo</p>
 <p>​    命令：cnpm install -g hexo-cli</p>
 <p>​    等待下载安装，同理使用查看版本号的方法来检查是否成功安装</p>
-<p>​    <img src="img3.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​    <img src="img3.png"></p>
 <p>​    4.可以新建一个文件夹用来存放之后完成的所有东西，如果出错或者其他，可以直接把文件夹删除重新来</p>
 <p>二、开始安装</p>
 <p>​    1.先进入到新建的文件夹中，然后使用以下命令初始化一个博客</p>
 <p>​    命令：sudo hexo init</p>
 <p>​    出现：Start blogging with Hexo!就代表已经成功完成</p>
-<p>​    <img src="img4.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​    <img src="img4.png"></p>
 <p>​    以上为初始化博客成功之后的目录</p>
 <p>​    2.启动博客</p>
 <p>​    命令：hexo s（一般用来做预览用）</p>
-<p>​    <img src="img5.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​    <img src="img5.png"></p>
 <p>​    （这里我使用的是8888端口，所以是localhost:8888，默认是4000端口）</p>
 <p>​    将里面的网址拷贝到浏览器就可以打开刚刚初始化好的博客啦！</p>
-<p>​    <img src="img6.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​    <img src="img6.png"></p>
 <p>​    </p>
 <p>​    3.修改端口的方法（提示端口忙碌的时候可以使用）</p>
 <p>​    找到<strong>node_modules</strong> \ <strong>hexo-server</strong>\ <strong>index.js</strong>文件，可以修改默认的port值！</p>
-<p>​    <img src="img7.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​    <img src="img7.png"></p>
 <p>三、新建一篇博客</p>
 <p>​    1.命令：hexo n “我的第一篇博客”</p>
 <p>​    使用完以上命令之后会创建好一个博客</p>
 <p>​    可以使用： vim ./source/_posts/我的第一篇博客.md 来编辑博客内容（也可以使用其他编辑器来完成）</p>
-<p>​    <img src="img8.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​    <img src="img8.png"></p>
 <p>​    2.退回到源目录，然后清理一下</p>
 <p>​    命令： hexo clean</p>
 <p>​    3.再次生成博客</p>
 <p>​    命令：hexo g</p>
 <p>​    4.然后重新启动博客服务（hexo s）</p>
-<p>​     <img src="img9.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​     <img src="img9.png"></p>
 <p>四、将博客部署到GitHub</p>
 <pre><code> 1.创建一个新的仓库
 </code></pre>
-<p>​    <img src="img10.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​    <img src="img10.png"></p>
 <p>​    2.设置仓库参数</p>
-<p>​    <img src="img11.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​    <img src="img11.png"></p>
 <p>​    3.现在需要在新建的Blog的目录下装一个git的部署的插件 </p>
 <p>​    命令：cnpm install –save hexo-deployer-git</p>
 <p>​    插件安装完成之后需要对_config.yml这个文件进行设置</p>
-<p>​    <img src="img12.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​    <img src="img12.png"></p>
 <p>​    使用vim _config.yml打开文件后，找到最下面的#Deployment</p>
 <p>​    修改成下图样子：其中网址填写刚刚创建好的仓库地址，最后保存退出</p>
-<p>​    <img src="img13.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
-<p>​    <img src="img14.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​    <img src="img13.png"></p>
+<p>​    <img src="img14.png"></p>
 <p>​    4.开始部署到github</p>
 <p>​    命令：hexo d </p>
 <p>​    如果出现如下错误，需要先运行红框中的两段命令，配置git的账户信息。然后再运行hexo d</p>
-<p>​    <img src="img15.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​    <img src="img15.png"></p>
 <p>​     </p>
 <p>​    5.成功部署到GitHub之后，使用之前创建的仓库名就可以直接访问博客啦</p>
 <p>​    <a target="_blank" rel="noopener" href="https://destiny3010.github.io/">https://destiny3010.github.io/</a></p>
@@ -244,7 +244,7 @@
 <p>​    2.其次我们需要下载主题，进入到Blog在的文件夹之后，</p>
 <p>​    命令：git clone <a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
 <p>​    3.然后修改配置文件中的参数：_config.yml ： theme: yilia</p>
-<p>​    <img src="img16.png" alt="source/_posts/如何基于hexo搭建一个博客"></p>
+<p>​    <img src="img16.png"></p>
 <p>​    最后上传到GitHub</p>
 <p>​    命令：hexo d</p>
 <p>六、参考资料</p>
