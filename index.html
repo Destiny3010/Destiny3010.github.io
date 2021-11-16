@@ -152,6 +152,207 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Python装饰器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/16/Python%E8%A3%85%E9%A5%B0%E5%99%A8/">Python装饰器</a>
+    </h1>
+  
+
+        
+        <a href="/2021/11/16/Python%E8%A3%85%E9%A5%B0%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2021-11-16T13:34:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考：B站视频：BV11s411V7Dt</p>
+<h3 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h3><p>以下代码可以输出2到10000之间的质数；</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_prime</span>(<span class="params">num</span>):</span></span><br><span class="line">  <span class="keyword">if</span> num &lt; <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">  <span class="keyword">elif</span> num == <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, num):</span><br><span class="line">      <span class="keyword">if</span> num % i == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prime_num</span>():</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">10000</span>):</span><br><span class="line">        <span class="keyword">if</span> is_prime(i):</span><br><span class="line">            <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">prime_num()</span><br></pre></td></tr></table></figure>
+
+<p>假如想要知道这段代码执行的时间？有什么方法呢？</p>
+<p>首先我们需要引入一个<code>time</code>模块，然后再得到开始执行的时间，和结束执行的时间，最终输出一下结束减去开始的时间</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_prime</span>(<span class="params">num</span>):</span></span><br><span class="line">  <span class="keyword">if</span> num &lt; <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">  <span class="keyword">elif</span> num == <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, num):</span><br><span class="line">      <span class="keyword">if</span> num % i == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prime_num</span>():</span></span><br><span class="line">    t1 = time.time()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">10000</span>):</span><br><span class="line">        <span class="keyword">if</span> is_prime(i):</span><br><span class="line">            <span class="built_in">print</span>(i)</span><br><span class="line">    t2 = time.time()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;执行时间是：&#123;:.4&#125; s&quot;</span>.<span class="built_in">format</span>(t2-t1))</span><br><span class="line">    </span><br><span class="line">prime_num()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>那如果我们经常需要查看一个函数执行的时间怎么办呢？每次这样写t1,t2总是不好的，我们就可以将这个计算时间的功能单独写成一个函数，在需要的时候再调用它就好了.</p>
+<p>首先我们定义了一个<code>display_time(func)</code>的函数，这个函数的参数是另外一个函数<code>func</code>，然后我们在函数内部又定义了一个<code>wrapper()</code>函数，wrapper是用来标记时间和返回我们想要执行的<code>func</code>函数本身的，最后在想要调用这个计时功能的<code>prime_num()</code>函数前面写上<code>@display_time</code>，那么这个<code>display_time()</code>就是一个装饰器，用来调用计时的功能，最终我们执行的<code>prime_num()</code>函数在执行的时候，其实是执行了<code>display_time(prime_num)</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">display_time</span>(<span class="params">func</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>():</span></span><br><span class="line">        t1 = time.time()</span><br><span class="line">        func()</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行时间是：&#123;:.4&#125; s&quot;</span>.<span class="built_in">format</span>(t2-t1))</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_prime</span>(<span class="params">num</span>):</span></span><br><span class="line">  <span class="keyword">if</span> num &lt; <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">  <span class="keyword">elif</span> num == <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, num):</span><br><span class="line">      <span class="keyword">if</span> num % i == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@display_time</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prime_num</span>():</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">10000</span>):</span><br><span class="line">        <span class="keyword">if</span> is_prime(i):</span><br><span class="line">            <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">prime_num()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><h4 id="如果我们的函数是有返回值的应该怎么写呢？"><a href="#如果我们的函数是有返回值的应该怎么写呢？" class="headerlink" title="如果我们的函数是有返回值的应该怎么写呢？"></a>如果我们的函数是有返回值的应该怎么写呢？</h4><p>修改了一下<code>count_prime_num()</code>函数，将其改为返回2到10000中有多少个质数。</p>
+<p>需要在装饰器中也加上一个可以返回的<code>result</code>值，然后<code>return result</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">display_time</span>(<span class="params">func</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>():</span></span><br><span class="line">        t1 = time.time()</span><br><span class="line">        result = func()</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行时间是：&#123;:.4&#125; s&quot;</span>.<span class="built_in">format</span>(t2-t1))</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_prime</span>(<span class="params">num</span>):</span></span><br><span class="line">  <span class="keyword">if</span> num &lt; <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">  <span class="keyword">elif</span> num == <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, num):</span><br><span class="line">      <span class="keyword">if</span> num % i == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@display_time</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_prime_num</span>():</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">10000</span>):</span><br><span class="line">        <span class="keyword">if</span> is_prime(i):</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> count    </span><br><span class="line"></span><br><span class="line">count = count_prime_num()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;一共有 %s 个质数&quot;</span> % count)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="如果函数有参数怎么办呢？"><a href="#如果函数有参数怎么办呢？" class="headerlink" title="如果函数有参数怎么办呢？"></a>如果函数有参数怎么办呢？</h4><p>我们先将<code>count_prime_num()</code>函数修改为输入两个数，计算出这两个数中间有多少个质数</p>
+<p>然后在装饰器中的<code>wrapper()</code>函数内写上 <code>*args</code> 。（  <code>*args</code>代表了参数数量不定） </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">display_time</span>(<span class="params">func</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>(<span class="params">*args</span>):</span></span><br><span class="line">        t1 = time.time()</span><br><span class="line">        result = func(*args)</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行时间是：&#123;:.4&#125; s&quot;</span>.<span class="built_in">format</span>(t2-t1))</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_prime</span>(<span class="params">num</span>):</span></span><br><span class="line">  <span class="keyword">if</span> num &lt; <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">  <span class="keyword">elif</span> num == <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, num):</span><br><span class="line">      <span class="keyword">if</span> num % i == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@display_time</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_prime_num</span>(<span class="params">minNum,maxNum</span>):</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(minNum,maxNum):</span><br><span class="line">        <span class="keyword">if</span> is_prime(i):</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> count    </span><br><span class="line"></span><br><span class="line">count = count_prime_num(<span class="number">2</span>,<span class="number">5000</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;一共有 %s 个质数&quot;</span> % count)</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/11/16/Python%E8%A3%85%E9%A5%B0%E5%99%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-FLask学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/06/FLask%E5%AD%A6%E4%B9%A0/">FLask学习</a>
+    </h1>
+  
+
+        
+        <a href="/2021/11/06/FLask%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2021-11-06T11:46:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Flask框架与Django框架对比"><a href="#1-Flask框架与Django框架对比" class="headerlink" title="1.Flask框架与Django框架对比"></a>1.Flask框架与Django框架对比</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Flask是一个轻量级框架：只提供了Web框架的核心功能，自由，灵活，高度定制</span><br><span class="line">Flask常用扩展包：（http://flask.pocoo.org/extensions/)</span><br><span class="line">Flask-SQLalchemy:操作数据库；</span><br><span class="line">Flask-script:插入脚本；</span><br><span class="line">Flask-migrate:Seesion存储方式指定；</span><br><span class="line">Flask-WTF:表单；</span><br><span class="line">Flask-Mail:邮件；</span><br><span class="line">Flask-Bable:提供国际化和本地化支持，翻译；</span><br><span class="line">Flask-Login:认证用户状态；</span><br><span class="line">Flask-OpenID:认证；</span><br><span class="line">Flask-RESTful:开发REST API的工具；</span><br><span class="line">Flask-Bootstrap:集成前端Twitter Bootstrap框架；</span><br><span class="line">Flask-Moment:本地化日期和时间；</span><br><span class="line">Flask-Admin:简单而可扩展的管理接口的框架；</span><br><span class="line">Flask文档：</span><br><span class="line">				中文文档：（http://docs.jinkan.org/docs/flask/）</span><br><span class="line">				英文文档：（http://flask.pocoo.org/docs/1.0/）</span><br><span class="line"></span><br><span class="line">Django是一个重量级的框架：为了方便业务程序的开发，提供了丰富的工具，组件</span><br><span class="line">Django提供了：Django-admin快速创建项目工程目录、manage.py管理项目工程、orm模型（数据库抽象层）、admin后台管理站点、缓存机制、文件存储系统、用户认证系统。（以上Flask都没有，需要扩展包来提供）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">根据不同的业务需要选择更加适合的框架来开发</span><br><span class="line">自由、灵活、高度定制-&gt;Flask</span><br><span class="line">快速实现业务，不考虑技术选型，越简单直接越好-&gt;Django</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="2-环境安装"><a href="#2-环境安装" class="headerlink" title="2.环境安装"></a>2.环境安装</h1><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#虚拟环境</span><br><span class="line">mkvirtualenv		#创建虚拟环境</span><br><span class="line">python3 -m venv xxxxx		#创建虚拟环境（虚拟环境名字为xxxxx）</span><br><span class="line"></span><br><span class="line">source xxxxx/bin/activate		#激活虚拟环境</span><br><span class="line"></span><br><span class="line">rmvirtualenv		#删除虚拟环境</span><br><span class="line"></span><br><span class="line">workon		#进入虚拟环境、查看所有虚拟环境</span><br><span class="line"></span><br><span class="line">deactivate		#退出虚拟环境</span><br><span class="line"></span><br><span class="line">#pip</span><br><span class="line">pip install		#安装依赖包</span><br><span class="line"></span><br><span class="line">pip uninstall		#卸载依赖包</span><br><span class="line"></span><br><span class="line">pip list		#查看已安装的依赖包</span><br><span class="line"></span><br><span class="line">pip freeze		#冻结当前环境的依赖包</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Flask（helloworld程序编写）"><a href="#Flask（helloworld程序编写）" class="headerlink" title="Flask（helloworld程序编写）"></a>Flask（helloworld程序编写）</h2><h5 id="创建helloworld文件"><a href="#创建helloworld文件" class="headerlink" title="创建helloworld文件"></a>创建helloworld文件</h5><p>运行的时候直接运行创建的helloworld.py文件就可以</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入Flask类</span></span><br><span class="line">form flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line"><span class="comment"># Flask类接受一个参数__name__</span></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 装饰器的作用是将路由器映射到视图函数index</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span>():</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line">	</span><br><span class="line"><span class="comment"># Flask应用程序实例的run方法启动WEB服务器</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">	app.run()</span><br></pre></td></tr></table></figure>
+
+<p>解析：</p>
+<ol>
+<li><p>从flask包导入Flask类，通过实例化这个类，创建了一个程序对象app</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br></pre></td></tr></table></figure></li>
+<li><p>接下来，注册一个处理函数，这个函数是处理某个请求的处理函数，Flask官方把她叫做视图函数（view function），可以理解为“<strong>请求处理函数</strong>”</p>
+<p>所谓的注册，其实是给函数戴上一个装饰器帽子，使用 <code>app.route()</code>装饰器来为这个函数绑定对应的URL，当用户在浏览器访问这个URL的时候，就触发这个函数，获取返回值，并把返回值显示到浏览器窗口：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span>():</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;Hello World!&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>填入<code>app.route()</code>的第一个参数是URL规则字符串，这里的<code>/</code>指的是根地址。</p>
+<p>我们只需要写出相对地址，主机地址、端口号都不需要写出。所以说，这里的 <code>/</code> 对应的是主机名后面的路径部分，完整 URL 就是 <code>http://localhost:5000/</code>。如果我们这里定义的 URL 规则是 <code>/hello</code>，那么完整 URL 就是 <code>http://localhost:5000/hello</code>。</p>
+<p>整个请求处理的过程如下所示：</p>
+<ol>
+<li>当用户在浏览器访问这个地址时（<code>http://localhost:5000</code>）</li>
+<li>服务器解析请求，发现请求的URL匹配的URL是 <code>/</code>，因此调用对应的处理函数<code>hello()</code></li>
+<li>获取 <code>hello()</code>函数的返回值，处理后返回给客户端</li>
+<li>浏览器接受响应，讲返回值显示在窗口上</li>
+</ol>
+</li>
+</ol>
+<h5 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Flask对象的初始化参数</span><br><span class="line">应用程序配置参数</span><br><span class="line">app.run()运行参数</span><br></pre></td></tr></table></figure>
+
+<p>Flask程序实例在创建的时候，需要默认传入当前Flask程序所制定的包（模块），以下是Flask应用程序在创建的时候一些需要我们关注的参数：</p>
+<ul>
+<li>Import_name<ul>
+<li>Flask程序所在的包（模块），传<code>__name__</code>就可以</li>
+<li>其可以决定Flask访问静态文件时查找的路径</li>
+</ul>
+</li>
+<li>Static_url_path<ul>
+<li>静态文件访问路径，可以不传，默认为：<code>/ + static_folder</code></li>
+</ul>
+</li>
+<li>Static_folder<ul>
+<li>静态文件存储的文件夹，可以不传，默认为：<code>static</code></li>
+</ul>
+</li>
+<li>Template_folder<ul>
+<li>模板文件存储的文件夹，可以不传，默认为：<code>templates</code></li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/11/06/FLask%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-如何基于hexo搭建一个博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

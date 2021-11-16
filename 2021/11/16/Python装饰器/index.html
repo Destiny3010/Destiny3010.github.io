@@ -6,36 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>如何基于hexo搭建一个博客 | Hexo</title>
+  <title>Python装饰器 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言： ​        本篇文章介绍了（Mac系统）如何从零开始搭建一个基于hexo的博客，下面开始介绍详细步骤。 一、首先需要先准备好环境 ​    1.Nodejs的安装： ​    http:&#x2F;&#x2F;nodejs.cn&#x2F; ​    检查安装是否成功（出现版本号就是成功） ​     ​    2.由于npm在国内访问比较慢，所以使用其他源来安装 ​    先利用npm来安装一个cnpm， ​">
+  <meta name="description" content="参考：B站视频：BV11s411V7Dt 装饰器以下代码可以输出2到10000之间的质数； 123456789101112131415161718def is_prime(num):  if num &lt; 2:    return False  elif num &#x3D;&#x3D; 2:    return True  else:    for i in range(2, num):      if num">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何基于hexo搭建一个博客">
-<meta property="og:url" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="Python装饰器">
+<meta property="og:url" content="http://example.com/2021/11/16/Python%E8%A3%85%E9%A5%B0%E5%99%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前言： ​        本篇文章介绍了（Mac系统）如何从零开始搭建一个基于hexo的博客，下面开始介绍详细步骤。 一、首先需要先准备好环境 ​    1.Nodejs的安装： ​    http:&#x2F;&#x2F;nodejs.cn&#x2F; ​    检查安装是否成功（出现版本号就是成功） ​     ​    2.由于npm在国内访问比较慢，所以使用其他源来安装 ​    先利用npm来安装一个cnpm， ​">
+<meta property="og:description" content="参考：B站视频：BV11s411V7Dt 装饰器以下代码可以输出2到10000之间的质数； 123456789101112131415161718def is_prime(num):  if num &lt; 2:    return False  elif num &#x3D;&#x3D; 2:    return True  else:    for i in range(2, num):      if num">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img1.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img2.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img3.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img4.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img5.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img6.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img7.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img8.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img9.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img10.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img11.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img12.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img13.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img14.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img15.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img16.png">
-<meta property="article:published_time" content="2021-10-24T13:29:55.000Z">
-<meta property="article:modified_time" content="2021-10-24T14:17:44.890Z">
+<meta property="article:published_time" content="2021-11-16T13:34:51.000Z">
+<meta property="article:modified_time" content="2021-11-16T14:56:35.660Z">
 <meta property="article:author" content="Junguang Shen">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -171,107 +154,52 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-如何基于hexo搭建一个博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Python装饰器" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      如何基于hexo搭建一个博客
+      Python装饰器
     </h1>
   
 
         
-        <a href="/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2021-10-24T13:29:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-24</time>
+        <a href="/2021/11/16/Python%E8%A3%85%E9%A5%B0%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2021-11-16T13:34:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前言：</p>
-<p>​        本篇文章介绍了（Mac系统）如何从零开始搭建一个基于hexo的博客，下面开始介绍详细步骤。</p>
-<p>一、首先需要先准备好环境</p>
-<p>​    1.Nodejs的安装：</p>
-<p>​    <a target="_blank" rel="noopener" href="http://nodejs.cn/">http://nodejs.cn/</a></p>
-<p>​    检查安装是否成功（出现版本号就是成功）</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img1.png" alt="img1"></p>
-<p>​    2.由于npm在国内访问比较慢，所以使用其他源来安装</p>
-<p>​    先利用npm来安装一个cnpm，</p>
-<p>​    命令：npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
-<p>​    等待下载安装，安装结束之后可以使用查看版本号的方法来检查是否安装成功</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img2.png"></p>
-<p>​    3.现在开始用cnpm安装hexo</p>
-<p>​    命令：cnpm install -g hexo-cli</p>
-<p>​    等待下载安装，同理使用查看版本号的方法来检查是否成功安装</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img3.png"></p>
-<p>​    4.可以新建一个文件夹用来存放之后完成的所有东西，如果出错或者其他，可以直接把文件夹删除重新来</p>
-<p>二、开始安装</p>
-<p>​    1.先进入到新建的文件夹中，然后使用以下命令初始化一个博客</p>
-<p>​    命令：sudo hexo init</p>
-<p>​    出现：Start blogging with Hexo!就代表已经成功完成</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img4.png"></p>
-<p>​    以上为初始化博客成功之后的目录</p>
-<p>​    2.启动博客</p>
-<p>​    命令：hexo s（一般用来做预览用）</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img5.png"></p>
-<p>​    （这里我使用的是8888端口，所以是localhost:8888，默认是4000端口）</p>
-<p>​    将里面的网址拷贝到浏览器就可以打开刚刚初始化好的博客啦！</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img6.png"></p>
-<p>​    </p>
-<p>​    3.修改端口的方法（提示端口忙碌的时候可以使用）</p>
-<p>​    找到<strong>node_modules</strong> \ <strong>hexo-server</strong>\ <strong>index.js</strong>文件，可以修改默认的port值！</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img7.png"></p>
-<p>三、新建一篇博客</p>
-<p>​    1.命令：hexo n “我的第一篇博客”</p>
-<p>​    使用完以上命令之后会创建好一个博客</p>
-<p>​    可以使用： vim ./source/_posts/我的第一篇博客.md 来编辑博客内容（也可以使用其他编辑器来完成）</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img8.png"></p>
-<p>​    2.退回到源目录，然后清理一下</p>
-<p>​    命令： hexo clean</p>
-<p>​    3.再次生成博客</p>
-<p>​    命令：hexo g</p>
-<p>​    4.然后重新启动博客服务（hexo s）</p>
-<p>​     <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img9.png"></p>
-<p>四、将博客部署到GitHub</p>
-<pre><code> 1.创建一个新的仓库
-</code></pre>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img10.png"></p>
-<p>​    2.设置仓库参数</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img11.png"></p>
-<p>​    3.现在需要在新建的Blog的目录下装一个git的部署的插件 </p>
-<p>​    命令：cnpm install –save hexo-deployer-git</p>
-<p>​    插件安装完成之后需要对_config.yml这个文件进行设置</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img12.png"></p>
-<p>​    使用vim _config.yml打开文件后，找到最下面的#Deployment</p>
-<p>​    修改成下图样子：其中网址填写刚刚创建好的仓库地址，最后保存退出</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img13.png"></p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img14.png"></p>
-<p>​    4.开始部署到github</p>
-<p>​    命令：hexo d </p>
-<p>​    如果出现如下错误，需要先运行红框中的两段命令，配置git的账户信息。然后再运行hexo d</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img15.png"></p>
-<p>​     </p>
-<p>​    5.成功部署到GitHub之后，使用之前创建的仓库名就可以直接访问博客啦</p>
-<p>​    <a target="_blank" rel="noopener" href="https://destiny3010.github.io/">https://destiny3010.github.io/</a></p>
-<p>五、更改主题</p>
-<p>​    1.首先我们需要找到一个我们喜欢的主题（因为太菜，不会自己写QAQ）</p>
-<p>​    示例：<a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia">https://github.com/litten/hexo-theme-yilia</a></p>
-<p>​    readme里面其实都有操作步骤，我还是抄一下</p>
-<p>​    2.其次我们需要下载主题，进入到Blog在的文件夹之后，</p>
-<p>​    命令：git clone <a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
-<p>​    3.然后修改配置文件中的参数：_config.yml ： theme: yilia</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img16.png"></p>
-<p>​    最后上传到GitHub</p>
-<p>​    命令：hexo d</p>
-<p>六、参考资料</p>
-<p>​    在自己动手的时候，总会遇到一些和教程编写者不同的问题，这时候我们需要合理的运用搜索引擎来帮助我    们解决问题。以下是我在遇到一些问题的时候找到的参考资料。</p>
-<p>​    1.无法正常使用hexo d命令来执行部署</p>
-<p>​    <a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html">https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html</a></p>
-<p>​    2.部署完成之后无法正常访问，一直报错404</p>
-<p>​    <a target="_blank" rel="noopener" href="https://blog.csdn.net/laplacepoisson/article/details/120650699">https://blog.csdn.net/laplacepoisson/article/details/120650699</a></p>
+        <p>参考：B站视频：BV11s411V7Dt</p>
+<h3 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h3><p>以下代码可以输出2到10000之间的质数；</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_prime</span>(<span class="params">num</span>):</span></span><br><span class="line">  <span class="keyword">if</span> num &lt; <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">  <span class="keyword">elif</span> num == <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, num):</span><br><span class="line">      <span class="keyword">if</span> num % i == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prime_num</span>():</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">10000</span>):</span><br><span class="line">        <span class="keyword">if</span> is_prime(i):</span><br><span class="line">            <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">prime_num()</span><br></pre></td></tr></table></figure>
+
+<p>假如想要知道这段代码执行的时间？有什么方法呢？</p>
+<p>首先我们需要引入一个<code>time</code>模块，然后再得到开始执行的时间，和结束执行的时间，最终输出一下结束减去开始的时间</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_prime</span>(<span class="params">num</span>):</span></span><br><span class="line">  <span class="keyword">if</span> num &lt; <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">  <span class="keyword">elif</span> num == <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, num):</span><br><span class="line">      <span class="keyword">if</span> num % i == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prime_num</span>():</span></span><br><span class="line">    t1 = time.time()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">10000</span>):</span><br><span class="line">        <span class="keyword">if</span> is_prime(i):</span><br><span class="line">            <span class="built_in">print</span>(i)</span><br><span class="line">    t2 = time.time()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;执行时间是：&#123;:.4&#125; s&quot;</span>.<span class="built_in">format</span>(t2-t1))</span><br><span class="line">    </span><br><span class="line">prime_num()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>那如果我们经常需要查看一个函数执行的时间怎么办呢？每次这样写t1,t2总是不好的，我们就可以将这个计算时间的功能单独写成一个函数，在需要的时候再调用它就好了.</p>
+<p>首先我们定义了一个<code>display_time(func)</code>的函数，这个函数的参数是另外一个函数<code>func</code>，然后我们在函数内部又定义了一个<code>wrapper()</code>函数，wrapper是用来标记时间和返回我们想要执行的<code>func</code>函数本身的，最后在想要调用这个计时功能的<code>prime_num()</code>函数前面写上<code>@display_time</code>，那么这个<code>display_time()</code>就是一个装饰器，用来调用计时的功能，最终我们执行的<code>prime_num()</code>函数在执行的时候，其实是执行了<code>display_time(prime_num)</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">display_time</span>(<span class="params">func</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>():</span></span><br><span class="line">        t1 = time.time()</span><br><span class="line">        func()</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行时间是：&#123;:.4&#125; s&quot;</span>.<span class="built_in">format</span>(t2-t1))</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_prime</span>(<span class="params">num</span>):</span></span><br><span class="line">  <span class="keyword">if</span> num &lt; <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">  <span class="keyword">elif</span> num == <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, num):</span><br><span class="line">      <span class="keyword">if</span> num % i == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@display_time</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prime_num</span>():</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">10000</span>):</span><br><span class="line">        <span class="keyword">if</span> is_prime(i):</span><br><span class="line">            <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">prime_num()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><h4 id="如果我们的函数是有返回值的应该怎么写呢？"><a href="#如果我们的函数是有返回值的应该怎么写呢？" class="headerlink" title="如果我们的函数是有返回值的应该怎么写呢？"></a>如果我们的函数是有返回值的应该怎么写呢？</h4><p>修改了一下<code>count_prime_num()</code>函数，将其改为返回2到10000中有多少个质数。</p>
+<p>需要在装饰器中也加上一个可以返回的<code>result</code>值，然后<code>return result</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">display_time</span>(<span class="params">func</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>():</span></span><br><span class="line">        t1 = time.time()</span><br><span class="line">        result = func()</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行时间是：&#123;:.4&#125; s&quot;</span>.<span class="built_in">format</span>(t2-t1))</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_prime</span>(<span class="params">num</span>):</span></span><br><span class="line">  <span class="keyword">if</span> num &lt; <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">  <span class="keyword">elif</span> num == <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, num):</span><br><span class="line">      <span class="keyword">if</span> num % i == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@display_time</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_prime_num</span>():</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">10000</span>):</span><br><span class="line">        <span class="keyword">if</span> is_prime(i):</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> count    </span><br><span class="line"></span><br><span class="line">count = count_prime_num()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;一共有 %s 个质数&quot;</span> % count)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="如果函数有参数怎么办呢？"><a href="#如果函数有参数怎么办呢？" class="headerlink" title="如果函数有参数怎么办呢？"></a>如果函数有参数怎么办呢？</h4><p>我们先将<code>count_prime_num()</code>函数修改为输入两个数，计算出这两个数中间有多少个质数</p>
+<p>然后在装饰器中的<code>wrapper()</code>函数内写上 <code>*args</code> 。（  <code>*args</code>代表了参数数量不定） </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">display_time</span>(<span class="params">func</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>(<span class="params">*args</span>):</span></span><br><span class="line">        t1 = time.time()</span><br><span class="line">        result = func(*args)</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;执行时间是：&#123;:.4&#125; s&quot;</span>.<span class="built_in">format</span>(t2-t1))</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_prime</span>(<span class="params">num</span>):</span></span><br><span class="line">  <span class="keyword">if</span> num &lt; <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">  <span class="keyword">elif</span> num == <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, num):</span><br><span class="line">      <span class="keyword">if</span> num % i == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@display_time</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_prime_num</span>(<span class="params">minNum,maxNum</span>):</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(minNum,maxNum):</span><br><span class="line">        <span class="keyword">if</span> is_prime(i):</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> count    </span><br><span class="line"></span><br><span class="line">count = count_prime_num(<span class="number">2</span>,<span class="number">5000</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;一共有 %s 个质数&quot;</span> % count)</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -351,7 +279,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/11/16/Python%E8%A3%85%E9%A5%B0%E5%99%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -365,18 +293,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/11/06/FLask%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          FLask学习
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/10/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的第一篇博客</div>
+    <a href="/2021/11/06/FLask%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">FLask学习</div>
       <i class="icon-circle-right"></i>
     </a>
   

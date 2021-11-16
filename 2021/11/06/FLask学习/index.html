@@ -6,36 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>如何基于hexo搭建一个博客 | Hexo</title>
+  <title>FLask学习 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言： ​        本篇文章介绍了（Mac系统）如何从零开始搭建一个基于hexo的博客，下面开始介绍详细步骤。 一、首先需要先准备好环境 ​    1.Nodejs的安装： ​    http:&#x2F;&#x2F;nodejs.cn&#x2F; ​    检查安装是否成功（出现版本号就是成功） ​     ​    2.由于npm在国内访问比较慢，所以使用其他源来安装 ​    先利用npm来安装一个cnpm， ​">
+  <meta name="description" content="1.Flask框架与Django框架对比1234567891011121314151617181920212223242526Flask是一个轻量级框架：只提供了Web框架的核心功能，自由，灵活，高度定制Flask常用扩展包：（http:&#x2F;&#x2F;flask.pocoo.org&#x2F;extensions&#x2F;)Flask-SQLalchemy:操作数据库；Flask-script:插入脚本；Flask-migr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何基于hexo搭建一个博客">
-<meta property="og:url" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="FLask学习">
+<meta property="og:url" content="http://example.com/2021/11/06/FLask%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前言： ​        本篇文章介绍了（Mac系统）如何从零开始搭建一个基于hexo的博客，下面开始介绍详细步骤。 一、首先需要先准备好环境 ​    1.Nodejs的安装： ​    http:&#x2F;&#x2F;nodejs.cn&#x2F; ​    检查安装是否成功（出现版本号就是成功） ​     ​    2.由于npm在国内访问比较慢，所以使用其他源来安装 ​    先利用npm来安装一个cnpm， ​">
+<meta property="og:description" content="1.Flask框架与Django框架对比1234567891011121314151617181920212223242526Flask是一个轻量级框架：只提供了Web框架的核心功能，自由，灵活，高度定制Flask常用扩展包：（http:&#x2F;&#x2F;flask.pocoo.org&#x2F;extensions&#x2F;)Flask-SQLalchemy:操作数据库；Flask-script:插入脚本；Flask-migr">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img1.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img2.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img3.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img4.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img5.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img6.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img7.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img8.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img9.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img10.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img11.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img12.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img13.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img14.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img15.png">
-<meta property="og:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img16.png">
-<meta property="article:published_time" content="2021-10-24T13:29:55.000Z">
-<meta property="article:modified_time" content="2021-10-24T14:17:44.890Z">
+<meta property="article:published_time" content="2021-11-06T11:46:10.000Z">
+<meta property="article:modified_time" content="2021-11-10T07:25:04.050Z">
 <meta property="article:author" content="Junguang Shen">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -171,107 +154,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-如何基于hexo搭建一个博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-FLask学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      如何基于hexo搭建一个博客
+      FLask学习
     </h1>
   
 
         
-        <a href="/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2021-10-24T13:29:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-24</time>
+        <a href="/2021/11/06/FLask%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2021-11-06T11:46:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前言：</p>
-<p>​        本篇文章介绍了（Mac系统）如何从零开始搭建一个基于hexo的博客，下面开始介绍详细步骤。</p>
-<p>一、首先需要先准备好环境</p>
-<p>​    1.Nodejs的安装：</p>
-<p>​    <a target="_blank" rel="noopener" href="http://nodejs.cn/">http://nodejs.cn/</a></p>
-<p>​    检查安装是否成功（出现版本号就是成功）</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img1.png" alt="img1"></p>
-<p>​    2.由于npm在国内访问比较慢，所以使用其他源来安装</p>
-<p>​    先利用npm来安装一个cnpm，</p>
-<p>​    命令：npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
-<p>​    等待下载安装，安装结束之后可以使用查看版本号的方法来检查是否安装成功</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img2.png"></p>
-<p>​    3.现在开始用cnpm安装hexo</p>
-<p>​    命令：cnpm install -g hexo-cli</p>
-<p>​    等待下载安装，同理使用查看版本号的方法来检查是否成功安装</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img3.png"></p>
-<p>​    4.可以新建一个文件夹用来存放之后完成的所有东西，如果出错或者其他，可以直接把文件夹删除重新来</p>
-<p>二、开始安装</p>
-<p>​    1.先进入到新建的文件夹中，然后使用以下命令初始化一个博客</p>
-<p>​    命令：sudo hexo init</p>
-<p>​    出现：Start blogging with Hexo!就代表已经成功完成</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img4.png"></p>
-<p>​    以上为初始化博客成功之后的目录</p>
-<p>​    2.启动博客</p>
-<p>​    命令：hexo s（一般用来做预览用）</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img5.png"></p>
-<p>​    （这里我使用的是8888端口，所以是localhost:8888，默认是4000端口）</p>
-<p>​    将里面的网址拷贝到浏览器就可以打开刚刚初始化好的博客啦！</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img6.png"></p>
-<p>​    </p>
-<p>​    3.修改端口的方法（提示端口忙碌的时候可以使用）</p>
-<p>​    找到<strong>node_modules</strong> \ <strong>hexo-server</strong>\ <strong>index.js</strong>文件，可以修改默认的port值！</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img7.png"></p>
-<p>三、新建一篇博客</p>
-<p>​    1.命令：hexo n “我的第一篇博客”</p>
-<p>​    使用完以上命令之后会创建好一个博客</p>
-<p>​    可以使用： vim ./source/_posts/我的第一篇博客.md 来编辑博客内容（也可以使用其他编辑器来完成）</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img8.png"></p>
-<p>​    2.退回到源目录，然后清理一下</p>
-<p>​    命令： hexo clean</p>
-<p>​    3.再次生成博客</p>
-<p>​    命令：hexo g</p>
-<p>​    4.然后重新启动博客服务（hexo s）</p>
-<p>​     <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img9.png"></p>
-<p>四、将博客部署到GitHub</p>
-<pre><code> 1.创建一个新的仓库
-</code></pre>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img10.png"></p>
-<p>​    2.设置仓库参数</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img11.png"></p>
-<p>​    3.现在需要在新建的Blog的目录下装一个git的部署的插件 </p>
-<p>​    命令：cnpm install –save hexo-deployer-git</p>
-<p>​    插件安装完成之后需要对_config.yml这个文件进行设置</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img12.png"></p>
-<p>​    使用vim _config.yml打开文件后，找到最下面的#Deployment</p>
-<p>​    修改成下图样子：其中网址填写刚刚创建好的仓库地址，最后保存退出</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img13.png"></p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img14.png"></p>
-<p>​    4.开始部署到github</p>
-<p>​    命令：hexo d </p>
-<p>​    如果出现如下错误，需要先运行红框中的两段命令，配置git的账户信息。然后再运行hexo d</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img15.png"></p>
-<p>​     </p>
-<p>​    5.成功部署到GitHub之后，使用之前创建的仓库名就可以直接访问博客啦</p>
-<p>​    <a target="_blank" rel="noopener" href="https://destiny3010.github.io/">https://destiny3010.github.io/</a></p>
-<p>五、更改主题</p>
-<p>​    1.首先我们需要找到一个我们喜欢的主题（因为太菜，不会自己写QAQ）</p>
-<p>​    示例：<a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia">https://github.com/litten/hexo-theme-yilia</a></p>
-<p>​    readme里面其实都有操作步骤，我还是抄一下</p>
-<p>​    2.其次我们需要下载主题，进入到Blog在的文件夹之后，</p>
-<p>​    命令：git clone <a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
-<p>​    3.然后修改配置文件中的参数：_config.yml ： theme: yilia</p>
-<p>​    <img src="%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/img16.png"></p>
-<p>​    最后上传到GitHub</p>
-<p>​    命令：hexo d</p>
-<p>六、参考资料</p>
-<p>​    在自己动手的时候，总会遇到一些和教程编写者不同的问题，这时候我们需要合理的运用搜索引擎来帮助我    们解决问题。以下是我在遇到一些问题的时候找到的参考资料。</p>
-<p>​    1.无法正常使用hexo d命令来执行部署</p>
-<p>​    <a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html">https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html</a></p>
-<p>​    2.部署完成之后无法正常访问，一直报错404</p>
-<p>​    <a target="_blank" rel="noopener" href="https://blog.csdn.net/laplacepoisson/article/details/120650699">https://blog.csdn.net/laplacepoisson/article/details/120650699</a></p>
+        <h1 id="1-Flask框架与Django框架对比"><a href="#1-Flask框架与Django框架对比" class="headerlink" title="1.Flask框架与Django框架对比"></a>1.Flask框架与Django框架对比</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Flask是一个轻量级框架：只提供了Web框架的核心功能，自由，灵活，高度定制</span><br><span class="line">Flask常用扩展包：（http://flask.pocoo.org/extensions/)</span><br><span class="line">Flask-SQLalchemy:操作数据库；</span><br><span class="line">Flask-script:插入脚本；</span><br><span class="line">Flask-migrate:Seesion存储方式指定；</span><br><span class="line">Flask-WTF:表单；</span><br><span class="line">Flask-Mail:邮件；</span><br><span class="line">Flask-Bable:提供国际化和本地化支持，翻译；</span><br><span class="line">Flask-Login:认证用户状态；</span><br><span class="line">Flask-OpenID:认证；</span><br><span class="line">Flask-RESTful:开发REST API的工具；</span><br><span class="line">Flask-Bootstrap:集成前端Twitter Bootstrap框架；</span><br><span class="line">Flask-Moment:本地化日期和时间；</span><br><span class="line">Flask-Admin:简单而可扩展的管理接口的框架；</span><br><span class="line">Flask文档：</span><br><span class="line">				中文文档：（http://docs.jinkan.org/docs/flask/）</span><br><span class="line">				英文文档：（http://flask.pocoo.org/docs/1.0/）</span><br><span class="line"></span><br><span class="line">Django是一个重量级的框架：为了方便业务程序的开发，提供了丰富的工具，组件</span><br><span class="line">Django提供了：Django-admin快速创建项目工程目录、manage.py管理项目工程、orm模型（数据库抽象层）、admin后台管理站点、缓存机制、文件存储系统、用户认证系统。（以上Flask都没有，需要扩展包来提供）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">根据不同的业务需要选择更加适合的框架来开发</span><br><span class="line">自由、灵活、高度定制-&gt;Flask</span><br><span class="line">快速实现业务，不考虑技术选型，越简单直接越好-&gt;Django</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="2-环境安装"><a href="#2-环境安装" class="headerlink" title="2.环境安装"></a>2.环境安装</h1><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#虚拟环境</span><br><span class="line">mkvirtualenv		#创建虚拟环境</span><br><span class="line">python3 -m venv xxxxx		#创建虚拟环境（虚拟环境名字为xxxxx）</span><br><span class="line"></span><br><span class="line">source xxxxx/bin/activate		#激活虚拟环境</span><br><span class="line"></span><br><span class="line">rmvirtualenv		#删除虚拟环境</span><br><span class="line"></span><br><span class="line">workon		#进入虚拟环境、查看所有虚拟环境</span><br><span class="line"></span><br><span class="line">deactivate		#退出虚拟环境</span><br><span class="line"></span><br><span class="line">#pip</span><br><span class="line">pip install		#安装依赖包</span><br><span class="line"></span><br><span class="line">pip uninstall		#卸载依赖包</span><br><span class="line"></span><br><span class="line">pip list		#查看已安装的依赖包</span><br><span class="line"></span><br><span class="line">pip freeze		#冻结当前环境的依赖包</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Flask（helloworld程序编写）"><a href="#Flask（helloworld程序编写）" class="headerlink" title="Flask（helloworld程序编写）"></a>Flask（helloworld程序编写）</h2><h5 id="创建helloworld文件"><a href="#创建helloworld文件" class="headerlink" title="创建helloworld文件"></a>创建helloworld文件</h5><p>运行的时候直接运行创建的helloworld.py文件就可以</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入Flask类</span></span><br><span class="line">form flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line"><span class="comment"># Flask类接受一个参数__name__</span></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 装饰器的作用是将路由器映射到视图函数index</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span>():</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line">	</span><br><span class="line"><span class="comment"># Flask应用程序实例的run方法启动WEB服务器</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">	app.run()</span><br></pre></td></tr></table></figure>
+
+<p>解析：</p>
+<ol>
+<li><p>从flask包导入Flask类，通过实例化这个类，创建了一个程序对象app</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br></pre></td></tr></table></figure></li>
+<li><p>接下来，注册一个处理函数，这个函数是处理某个请求的处理函数，Flask官方把她叫做视图函数（view function），可以理解为“<strong>请求处理函数</strong>”</p>
+<p>所谓的注册，其实是给函数戴上一个装饰器帽子，使用 <code>app.route()</code>装饰器来为这个函数绑定对应的URL，当用户在浏览器访问这个URL的时候，就触发这个函数，获取返回值，并把返回值显示到浏览器窗口：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span>():</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;Hello World!&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>填入<code>app.route()</code>的第一个参数是URL规则字符串，这里的<code>/</code>指的是根地址。</p>
+<p>我们只需要写出相对地址，主机地址、端口号都不需要写出。所以说，这里的 <code>/</code> 对应的是主机名后面的路径部分，完整 URL 就是 <code>http://localhost:5000/</code>。如果我们这里定义的 URL 规则是 <code>/hello</code>，那么完整 URL 就是 <code>http://localhost:5000/hello</code>。</p>
+<p>整个请求处理的过程如下所示：</p>
+<ol>
+<li>当用户在浏览器访问这个地址时（<code>http://localhost:5000</code>）</li>
+<li>服务器解析请求，发现请求的URL匹配的URL是 <code>/</code>，因此调用对应的处理函数<code>hello()</code></li>
+<li>获取 <code>hello()</code>函数的返回值，处理后返回给客户端</li>
+<li>浏览器接受响应，讲返回值显示在窗口上</li>
+</ol>
+</li>
+</ol>
+<h5 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Flask对象的初始化参数</span><br><span class="line">应用程序配置参数</span><br><span class="line">app.run()运行参数</span><br></pre></td></tr></table></figure>
+
+<p>Flask程序实例在创建的时候，需要默认传入当前Flask程序所制定的包（模块），以下是Flask应用程序在创建的时候一些需要我们关注的参数：</p>
+<ul>
+<li>Import_name<ul>
+<li>Flask程序所在的包（模块），传<code>__name__</code>就可以</li>
+<li>其可以决定Flask访问静态文件时查找的路径</li>
+</ul>
+</li>
+<li>Static_url_path<ul>
+<li>静态文件访问路径，可以不传，默认为：<code>/ + static_folder</code></li>
+</ul>
+</li>
+<li>Static_folder<ul>
+<li>静态文件存储的文件夹，可以不传，默认为：<code>static</code></li>
+</ul>
+</li>
+<li>Template_folder<ul>
+<li>模板文件存储的文件夹，可以不传，默认为：<code>templates</code></li>
+</ul>
+</li>
+</ul>
 
       
 
@@ -351,7 +304,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/11/06/FLask%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -365,18 +318,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/11/06/FLask%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/11/16/Python%E8%A3%85%E9%A5%B0%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          FLask学习
+          Python装饰器
         
       </div>
     </a>
   
   
-    <a href="/2021/10/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的第一篇博客</div>
+    <a href="/2021/10/24/%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何基于hexo搭建一个博客</div>
       <i class="icon-circle-right"></i>
     </a>
   
