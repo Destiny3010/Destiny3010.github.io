@@ -152,6 +152,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-关于一个显示器两个显示源出现的BUG" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/12/%E5%85%B3%E4%BA%8E%E4%B8%80%E4%B8%AA%E6%98%BE%E7%A4%BA%E5%99%A8%E4%B8%A4%E4%B8%AA%E6%98%BE%E7%A4%BA%E6%BA%90%E5%87%BA%E7%8E%B0%E7%9A%84BUG/">关于一个显示器两个显示源出现的BUG</a>
+    </h1>
+  
+
+        
+        <a href="/2021/12/12/%E5%85%B3%E4%BA%8E%E4%B8%80%E4%B8%AA%E6%98%BE%E7%A4%BA%E5%99%A8%E4%B8%A4%E4%B8%AA%E6%98%BE%E7%A4%BA%E6%BA%90%E5%87%BA%E7%8E%B0%E7%9A%84BUG/" class="archive-article-date">
+  	<time datetime="2021-12-12T14:40:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h2><p>Mac笔记本一台（雷电4借口），Win笔记本一台（HDMI2.0接口），HDMI2.0线✖️2，type-c拓展坞一个，小米165Hz显示器一台（HDMI✖️2），Type-c to HDMI线一根</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Win笔记本设置只在外接显示器上显示（120Hz，1080P）</p>
+<p>Mac笔记本使用拓展坞+HDMI线连接（120Hz，1080P）</p>
+<h2 id="BUG起因"><a href="#BUG起因" class="headerlink" title="BUG起因"></a>BUG起因</h2><p>新买了Type-c to HDMI的线，直接换了拓展坞和HDMI线为直连，发现刷新率还可以修改为165Hz，144Hz等，分辨率也可以换为2K，4K，就设置为165Hz了，发现显示器就花屏了，改为144Hz，可以正常使用。</p>
+<p>后来打开win的电脑，发现显示器一直显示无信号，换了线也没有用，又由于电脑设置为默认只在外接显示器上显示，插上HDMI线之后笔记本自带的显示器就黑屏，没法修改设置。</p>
+<p>找了各种方法试验，终于找到是可能是因为在Mac端的时候将显示参数修改为HDMI2.0不支持的设置，就导致了win的笔记本出现了问题。</p>
+<p>仅作为记录遇到问题的笔记。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">显示器问题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/12/12/%E5%85%B3%E4%BA%8E%E4%B8%80%E4%B8%AA%E6%98%BE%E7%A4%BA%E5%99%A8%E4%B8%A4%E4%B8%AA%E6%98%BE%E7%A4%BA%E6%BA%90%E5%87%BA%E7%8E%B0%E7%9A%84BUG/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Python装饰器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -757,6 +837,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">显示器问题</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
